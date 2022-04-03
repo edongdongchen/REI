@@ -8,6 +8,6 @@
 
 The University of Edinburgh, UK
 
-In CVPR 2022
+In CVPR 2022 (Oral)
 
 Code is coming soon...
