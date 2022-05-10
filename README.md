@@ -49,13 +49,13 @@ Figure 4: **More results.** From top to bottom: reconstruction of <img src="http
 
 ## Run the code
 
-1. Requirements: configure the environment by following: [environment.yml](https://github.com/edongdongchen/REI/blob/master/environment.yml) to run Inpainting and CT experiments. To run MRI experiments, please install the 'fastmri' package by `pip install fastmri`.
+1. Requirements: configure the environment by following: [environment.yml](https://github.com/edongdongchen/REI/blob/main/environment.yml) to run Inpainting and CT experiments. To run MRI experiments, please install the 'fastmri' package by `pip install fastmri`.
 
 2. Find the implementation of Robust Equivariant Imaging (**REI**):
-   * REI for `accelerated MRI` task and `Inpainting` task: [rei_end2end.py](https://github.com/edongdongchen/REI/blob/master/rei/closure/rei_end2end.py)
-   * REI for the `low-dose and sparse-view CT` task: [rei_end2end_ct.py](https://github.com/edongdongchen/REI/blob/master/rei/closure/rei_end2end_ct.py)
-   * Find our implementation of `SURE` for `Gaussian` and `Poisson` noise models at: [rei_end2end.py](https://github.com/edongdongchen/REI/blob/master/rei/closure/rei_end2end.py)
-   * Find our implementation of `SURE` for `Mixed Poisson-Gaussian` noise model at: [rei_end2end_ct.py](https://github.com/edongdongchen/REI/blob/master/rei/closure/rei_end2end_ct.py)
+   * REI for `accelerated MRI` task and `Inpainting` task: [rei_end2end.py](https://github.com/edongdongchen/REI/blob/main/rei/closure/rei_end2end.py)
+   * REI for the `low-dose and sparse-view CT` task: [rei_end2end_ct.py](https://github.com/edongdongchen/REI/blob/main/rei/closure/rei_end2end_ct.py)
+   * Find our implementation of `SURE` for `Gaussian` and `Poisson` noise models at: [rei_end2end.py](https://github.com/edongdongchen/REI/blob/main/rei/closure/rei_end2end.py)
+   * Find our implementation of `SURE` for `Mixed Poisson-Gaussian` noise model at: [rei_end2end_ct.py](https://github.com/edongdongchen/REI/blob/main/rei/closure/rei_end2end_ct.py)
 
 3. Download datasets from the below source and move them under the folders: `./dataset/mri`, `./dataset/Urban100`, and `./dataset/CT`, repectively:
    * fastMRI (only the subset 'Knee MRI'): https://fastmri.med.nyu.edu/
