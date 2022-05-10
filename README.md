@@ -1,4 +1,4 @@
-# Robust Equivariant Imaging (REI)
+# Robust Equivariant Imaging (REI) in PyTorch
 
 [![arXiv](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2111.12855)
 [![GitHub Stars](https://img.shields.io/github/stars/edongdongchen/REI?style=social)](https://github.com/edongdongchen/REI)
@@ -49,13 +49,15 @@ Figure 4: **More results.** From top to bottom: reconstruction of <img src="http
 
 ## Run the code
 
-1. Requirements: configure the environment by following: `./environment.yml` to run Inpainting and CT experiments. To run MRI experiments, please install the 'fastmri' package by `pip install fastmri`.
+1. Requirements: configure the environment by following: [environment.yml](https://github.com/edongdongchen/REI/blob/master/environment.yml) to run Inpainting and CT experiments. To run MRI experiments, please install the 'fastmri' package by `pip install fastmri`.
 
 2. Find the implementation of Robust Equivariant Imaging (**REI**):
-   * `./rei/closure/rei_end2end.py`: REI for `Guassian` noise (e.g. in 'accelerated MRI' task) and `Poisson` noise (e.g. in 'Inpainting' task)
-   * `./rei/closure/rei_end2end_ct.py`: REI for `Mixed Poisson-Gaussian (MPG)` noise model (e.g. in 'low-dose&sparse-view CT' task)
+   * REI for `accelerated MRI` task and `Inpainting` task: [rei_end2end.py](https://github.com/edongdongchen/REI/blob/master/rei/closure/rei_end2end.py)
+   * REI for the `low-dose and sparse-view CT` task: [rei_end2end_ct.py](https://github.com/edongdongchen/REI/blob/master/rei/closure/rei_end2end_ct.py)
+   * Find our implementation of `SURE` for `Gaussian` and `Poisson` noise models at: [rei_end2end.py](https://github.com/edongdongchen/REI/blob/master/rei/closure/rei_end2end.py)
+   * Find our implementation of `SURE` for `Mixed Poisson-Gaussian` noise model at: [rei_end2end_ct.py](https://github.com/edongdongchen/REI/blob/master/rei/closure/rei_end2end_ct.py)
 
-3. Download datasets from the below source and move them under the folders: './dataset/mri', './dataset/Urban100', and './dataset/CT', repectively:
+3. Download datasets from the below source and move them under the folders: `./dataset/mri`, `./dataset/Urban100`, and `./dataset/CT`, repectively:
    * fastMRI (only the subset 'Knee MRI'): https://fastmri.med.nyu.edu/
    * Urban100: https://uofi.box.com/shared/static/65upg43jjd0a4cwsiqgl6o6ixube6klm.zip
    * CT100: https://www.kaggle.com/kmader/siim-medical-images
