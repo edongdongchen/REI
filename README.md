@@ -23,7 +23,7 @@ Deep networks provide state-of-the-art performance in multiple imaging inverse p
 Figure 1: **Equivariant imaging systems.** If the set of signals is invariant to a certain set of transformations, the composition of imaging operator (<img src="https://render.githubusercontent.com/render/math?math=A">) with the reconstruction function (<img src="https://render.githubusercontent.com/render/math?math=f_\theta">) should be `equivariant` to these transformations.
 
 * **EI** is the first `self-supervised` learning framework that exploits the `group invariance` resent in signal distributions to learn a reconstruction function from partial measurement data alone (Figure 1). EI is `end-to-end` and `physics-based` learning framework for inverse problems with theoretical guarantees which leverages simple but fundamental priors about natural signals: `symmetry` and `low-dimensionality`. 
-* Given an inverse problem, EI learns the reconstruction function with **NO** need for either multiple forward operators or extra masking measurement data into multiple complementary/overlapped parts. Please find our [blog post](https://tachella.github.io/projects/equivariantimaging/) for a quick introduction of EI.
+* Given an inverse problem, EI learns the reconstruction function with **NO** need for either multiple forward operators or extra masking measurement data into multiple complementary/overlapped parts. EI is agnostic to neural network architecture. Please find our [blog post](https://tachella.github.io/projects/equivariantimaging/) for a quick introduction of EI.
 
 #### Robust Equivariant Imaging (REI)
 
@@ -32,10 +32,11 @@ Figure 1: **Equivariant imaging systems.** If the set of signals is invariant to
 Figure 2: **REI vs EI:** EI is not robust to noise and the performance degrades with increasing noise. From top to bottom: reconstructions of EI, supervised (Sup) baseline, and the proposed REI on 4× accelerated MRI with Gaussian noise level <img src="https://render.githubusercontent.com/render/math?math=\sigma"> = 0.01, 0.1, 0.2. PSNR values are shown in the top right corner of the images
 
 
-* Motivation: while EI results are impressive and solved the challege of learning the nullspace without groundtruth, its performance degrades with increasing measurement noise (Figure 2). 
-* Main idea: we propose to employ `Stein's Unbiased Risk Estimator (SURE)` to obtain a fully unsupervised training loss that is robust to noise, i.e. have an unbiased SURE estimator to the measurement consistency loss of clean measurements. With the SURE loss and the EI objective, our proposed REI framework can learn to image from noisy partial measurements alone (Figure 3, Figure 4). 
-* Performance: REI can obatin considerable performance gains on linear (e.g. MRI, Inpainting) and nonlinear inverse problems (e.g. CT), thereby paving the way for robust unsupervised imaging with deep networks (Figure 4).
-* Note while we evaluated REI on the `Gaussian`, `Poisson` and `Mixed Poisson-Gaussian (MPG)` models, SURE can handle many other models including non-exponential ones, see [Raphan et al.](https://www.cns.nyu.edu/pub/lcv/raphan10.pdf) for a detailed list. By this repo, we believe one can implement other noise models accordingly without giant changes.
+* *Motivation*: while EI results are impressive and solved the challege of learning the nullspace without groundtruth, its performance degrades with increasing measurement noise (Figure 2). 
+* *Main idea*: we propose to employ `Stein's Unbiased Risk Estimator (SURE)` to obtain a fully unsupervised training loss that is robust to noise, i.e. have an unbiased SURE estimator to the measurement consistency loss of clean measurements. With the SURE loss and the EI objective, our proposed REI framework can learn to image from noisy partial measurements alone (Figure 3, Figure 4). 
+* *Performance*: REI can obatin considerable performance gains on linear (e.g. MRI, Inpainting) and nonlinear inverse problems (e.g. CT), thereby paving the way for robust unsupervised imaging with deep networks (Figure 4).
+* *Remark 1*: while we evaluated REI on the `Gaussian`, `Poisson` and `Mixed Poisson-Gaussian (MPG)` models, SURE can handle many other models including non-exponential ones, see [Raphan et al.](https://www.cns.nyu.edu/pub/lcv/raphan10.pdf) for a detailed list. By this repo, we believe one can implement other noise models accordingly without giant changes.
+* *Remark 2*: (R)EI is agnostic to neural network architecture -- one can employ (R)EI to train any existed imaging networks to achieve fully unsupervised learning to image without changing the architectures.
 
 
 <div align=center><img width="600" src="https://github.com/edongdongchen/REI/blob/main/images/fig1_mri.png"></div>
@@ -70,12 +71,17 @@ Figure 4: **More results.** From top to bottom: reconstruction of <img src="http
    python3 demo_test.py
    ```
 
-5. **Test**: we provide the trained models used in the paper which can be downloaded at [Google Drive](https://drive.google.com/drive/folders/1Io0quD-RvoVNkCmE36aQYpoouEAEP5pF?usp=sharing). Please put the downloaded folder 'ckp' in the root path. Then evaluate the trained models by running 'demo_test.py' to test the performance (PSNR) of a trained model on a specific task.
-```
-python3 demo_test.py
-``` 
+5. **Test**: run 'demo_test.py' to test the performance (PSNR) of a trained model on a specific task.
+   ```
+   python3 demo_test.py
+   ``` 
+   We also provide the trained models used in the paper which can be downloaded at [Google Drive](https://drive.google.com/drive/folders/1Io0quD-RvoVNkCmE36aQYpoouEAEP5pF?usp=sharing). Please put the downloaded folder 'ckp' in the root path. 
+   
 
-5. to solve a new inverse problem, you may only need to implement your forward model (physics) and specify the path of you dataset.
+6. To solve a new inverse problem, one *only* needs to 
+   * step 1: implement their own forward model (physics of sensing model)
+   * step 2: determine the transformation group
+   * step 3: specify the path of the new dataset
 
 ## Citation
 If you use this code for your research, please cite our papers.
