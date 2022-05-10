@@ -75,7 +75,7 @@ Figure 4: **More results.** From top to bottom: reconstruction of <img src="http
    ```
    python3 demo_test.py
    ``` 
-   We also provide the trained models used in the paper which can be downloaded at [Google Drive](https://drive.google.com/drive/folders/1Io0quD-RvoVNkCmE36aQYpoouEAEP5pF?usp=sharing). Please put the downloaded folder 'ckp' in the root path. 
+   We also provide the trained models used in the paper which can be downloaded at [Google Drive](https://drive.google.com/drive/folders/1xvxEt9o7PTk6ztiTFy1MGzlPjFTi9iDL?usp=sharing). Please put the downloaded folder 'ckp' in the root path. 
    
 
 6. To solve a new inverse problem, one *only* needs to 
