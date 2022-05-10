@@ -83,7 +83,7 @@ Figure 4: **More results.** From top to bottom: reconstruction of <img src="http
 6. To solve a new inverse problem, one *only* needs to 
    * step 1: implement their own forward model (physics of sensing model)
    * step 2: determine the transformation group
-   * step 3: specify the path of the new dataset
+   * step 3: specify the path of new dataset
 
 ## Citation
 If you use this code for your research, please cite our papers.
