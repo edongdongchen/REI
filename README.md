@@ -14,17 +14,37 @@ In CVPR 2022 (oral)
 
 ## Background
 
-Deep networks provide state-of-the-art performance in multiple imaging inverse problems ranging from medical imaging to computational photography. However, most existing networks are trained with clean signals which are often hard or impossible to obtain.
+Deep networks provide state-of-the-art performance in multiple imaging inverse problems ranging from medical imaging to computational photography. However, most existing networks are trained with clean signals which are often hard or impossible to obtain. This work aims to solve the challenge: **learn to image from noisy and partial measurements alone**.
 
 #### [Equivariant Imaging (EI)](https://github.com/edongdongchen/EI)
 
-**EI** is the first `self-supervised` learning framework that exploits the `group invariance` resent in signal distributions to learn a reconstruction function from partial measurement data alone. EI is `end-to-end` and `physics-based` learning framework for inverse problems with theoretical guarantees which leverages simple but fundamental priors about natural signals: `symmetry` and `low-dimensionality`. Note given an inverse problem, EI learns the reconstruction function from the measurement data alone, with **NO** need for either multiple forward operators or extra masking measurement data into multiple complementary/overlapped parts. Please find our [blog post](https://tachella.github.io/projects/equivariantimaging/) for a quick introduction of EI.
+<div align=center><img width="650" src="https://github.com/edongdongchen/REI/blob/main/images/schematic_equivariance.png"></div>
+
+Figure 1: **Equivariant imaging systems.** If the set of signals is invariant to a certain set of transformations, the composition of imaging operator (<img src="https://render.githubusercontent.com/render/math?math=A">) with the reconstruction function (<img src="https://render.githubusercontent.com/render/math?math=f_\theta">) should be `equivariant` to these transformations.
+
+* **EI** is the first `self-supervised` learning framework that exploits the `group invariance` resent in signal distributions to learn a reconstruction function from partial measurement data alone (Figure 1). EI is `end-to-end` and `physics-based` learning framework for inverse problems with theoretical guarantees which leverages simple but fundamental priors about natural signals: `symmetry` and `low-dimensionality`. 
+* Given an inverse problem, EI learns the reconstruction function with **NO** need for either multiple forward operators or extra masking measurement data into multiple complementary/overlapped parts. Please find our [blog post](https://tachella.github.io/projects/equivariantimaging/) for a quick introduction of EI.
 
 #### Robust Equivariant Imaging (REI)
 
-* Motivation: while EI results are impressive and solved the challege of learning the nullspace without groundtruth, its performance degrades with increasing measurement noise (see below fig 1). 
-* Main idea: we propose to employ `Stein's Unbiased Risk Estimator (SURE)` to obtain a fully unsupervised training loss that is robust to noise, i.e. make SURE to provide an unbiased estimator to the measurement consistency loss of clean measurements. With the SURE loss and the EI objective, we propose a REI framework which can learn to image from noisy partial measurements alone (see the diagram of REI in below fig 2). 
-* Performance: REI can obatin considerable performance gains on linear (e.g. MRI, Inpainting) and nonlinear inverse problems (e.g. CT), thereby paving the way for robust unsupervised imaging with deep networks (see below fig 3).
+<div align=center><img width="650" src="https://github.com/edongdongchen/REI/blob/main/images/fig_cvpr_rei.png"></div>
+
+Figure 2: **REI vs EI:** EI is not robust to noise and the performance degrades with increasing noise. From top to bottom: reconstructions of EI, supervised (Sup) baseline, and the proposed REI on 4× accelerated MRI with Gaussian noise level <img src="https://render.githubusercontent.com/render/math?math=\sigma"> = 0.01, 0.1, 0.2. PSNR values are shown in the top right corner of the images
+
+
+* Motivation: while EI results are impressive and solved the challege of learning the nullspace without groundtruth, its performance degrades with increasing measurement noise (Figure 2). 
+* Main idea: we propose to employ `Stein's Unbiased Risk Estimator (SURE)` to obtain a fully unsupervised training loss that is robust to noise, i.e. have an unbiased SURE estimator to the measurement consistency loss of clean measurements. With the SURE loss and the EI objective, our proposed REI framework can learn to image from noisy partial measurements alone (Figure 3, Figure 4). 
+* Performance: REI can obatin considerable performance gains on linear (e.g. MRI, Inpainting) and nonlinear inverse problems (e.g. CT), thereby paving the way for robust unsupervised imaging with deep networks (Figure 4).
+* Note while we evaluated REI on the `Gaussian`, `Poisson` and `Mixed Poisson-Gaussian (MPG)` models, SURE can handle many other models including non-exponential ones, see [Raphan et al.](https://www.cns.nyu.edu/pub/lcv/raphan10.pdf) for a detailed list. By this repo, we believe one can implement other noise models accordingly without giant changes.
+
+
+<div align=center><img width="600" src="https://github.com/edongdongchen/REI/blob/main/images/fig1_mri.png"></div>
+
+Figure 3: **Motivation.** EI is not robust to noise and the performance degrades with increasing noise. From top to bottom: reconstructions of EI, supervised (Sup) baseline, and the proposed REI on 4× accelerated MRI with `Gaussian` noise level <img src="https://render.githubusercontent.com/render/math?math=\sigma"> = 0.01, 0.1, 0.2. PSNR values are shown in the top right corner of the images
+
+![flexible](https://github.com/edongdongchen/REI/blob/main/images/fig_ct.png)
+![flexible](https://github.com/edongdongchen/REI/blob/main/images/fig_ipt.png)
+Figure 4: **More results.** From top to bottom: reconstruction of <img src="https://render.githubusercontent.com/render/math?math=A^{\dagger}y">, EI, REI, Sup and the groundtruth on the CT (with `MPG` noise) and Inpainting (with `Poisson` noise) tasks, respectively.
 
 ## Run the code
 
