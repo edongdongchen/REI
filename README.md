@@ -65,12 +65,9 @@ Figure 4: **More results.** From top to bottom: reconstruction of <img src="http
 4. **Train**: run the below scripts to train REI models:
    * run `./demo_scripts/demo_mri.py`, `./demo_scripts/demo_inpainting.py`, `./demo_scripts/demo_ct.py` to train REI for MRI, Inpainting, and CT tasks, respectively.
    * or run `train_bash.sh` to train REI models on all tasks.
+   
    ```
    bash train_bash.sh
-   ```
-   * run 'demo_test.py' to test the performance (PSNR) of a trained model on a specific task.
-   ```
-   python3 demo_test.py
    ```
 
 5. **Test**: run 'demo_test.py' to test the performance (PSNR) of a trained model on a specific task.
