@@ -14,7 +14,7 @@ In CVPR 2022 (oral)
 
 ## Background
 
-Deep networks provide state-of-the-art performance in multiple imaging inverse problems ranging from medical imaging to computational photography. However, most existing networks are trained with clean signals which are often hard or impossible to obtain. This work aims to solve the challenge: **learn to image from noisy and partial measurements alone**. 
+Deep networks provide state-of-the-art performance in multiple imaging inverse problems ranging from medical imaging to computational photography. However, most existing networks are trained with clean signals which are often hard or impossible to obtain. This work aims to solve the challenge: **learn the reconstruction function from noisy and partial measurements alone**. 
 
 #### [Equivariant Imaging (EI)](https://github.com/edongdongchen/EI)
 
