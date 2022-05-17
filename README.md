@@ -14,7 +14,7 @@ In CVPR 2022 (oral)
 
 ## Background
 
-Deep networks provide state-of-the-art performance in multiple imaging inverse problems ranging from medical imaging to computational photography. However, most existing networks are trained with clean signals which are often hard or impossible to obtain. This work aims to solve the challenge: **learn to image from noisy and partial measurements alone**.
+Deep networks provide state-of-the-art performance in multiple imaging inverse problems ranging from medical imaging to computational photography. However, most existing networks are trained with clean signals which are often hard or impossible to obtain. This work aims to solve the challenge: **learn to image from noisy and partial measurements alone**. 
 
 #### [Equivariant Imaging (EI)](https://github.com/edongdongchen/EI)
 
@@ -29,19 +29,19 @@ Figure 1: **Equivariant imaging systems.** If the set of signals is invariant to
 
 <div align=center><img width="650" src="https://github.com/edongdongchen/REI/blob/main/images/fig_cvpr_rei.png"></div>
 
-Figure 2: **REI vs EI:** EI is not robust to noise and the performance degrades with increasing noise. From top to bottom: reconstructions of EI, supervised (Sup) baseline, and the proposed REI on 4× accelerated MRI with Gaussian noise level <img src="https://render.githubusercontent.com/render/math?math=\sigma"> = 0.01, 0.1, 0.2. PSNR values are shown in the top right corner of the images
+Figure 2: **REI training strategy.** <img src="https://render.githubusercontent.com/render/math?math=x^{(1)}"> represents the estimated image, <img src="https://render.githubusercontent.com/render/math?math=T_g"> is the transformation, while <img src="https://render.githubusercontent.com/render/math?math=x^{(2)}"> and <img src="https://render.githubusercontent.com/render/math?math=x^{(3)}">  represent <img src="https://render.githubusercontent.com/render/math?math=T_gx^{(1)}"> and the estimate of <img src="https://render.githubusercontent.com/render/math?math=x^{(2)}"> from the (noisy) measurements <img src="https://render.githubusercontent.com/render/math?math=\tilde{y} = A (x^{(2)})"> respectively. The `SURE` loss aims to estimate the measurement consistency of clean measurement, `REQ` (robust equivariance) loss is the error (e.g. MSE) between <img src="https://render.githubusercontent.com/render/math?math=x^{(2)}"> and <img src="https://render.githubusercontent.com/render/math?math=x^{(3)}">.
 
 
 * *Motivation*: while EI results are impressive and successfully solved the challenge of learning to image without groundtruth, its performance degrades with increasing measurement noise (Figure 2). 
 * *Main idea*: we propose to employ `Stein's Unbiased Risk Estimator (SURE)` to obtain a fully unsupervised training loss that is robust to noise, i.e. have an unbiased SURE estimator to the measurement consistency loss of clean measurements. With the SURE loss and the EI objective, our proposed REI framework can learn to image from noisy partial measurements alone (Figure 3, Figure 4). 
 * *Performance*: REI can obatin considerable performance gains on linear (e.g. MRI, Inpainting) and nonlinear inverse problems (e.g. CT), thereby paving the way for robust unsupervised imaging with deep networks (Figure 4).
 * *Remark 1*: while we evaluated REI on the `Gaussian`, `Poisson` and `Mixed Poisson-Gaussian (MPG)` models, SURE can handle many other models including non-exponential ones, see [Raphan et al.](https://www.cns.nyu.edu/pub/lcv/raphan10.pdf) for a detailed list. By this repo, we believe one can implement other noise models accordingly without giant changes.
-* *Remark 2*: `(R)EI is agnostic to neural network architecture` -- one can employ (R)EI to train any existed imaging networks to achieve fully unsupervised learning to image without changing the architectures.
+* *Remark 2*: `(R)EI is agnostic to neural network architecture` -- one can employ (R)EI to train any existed imaging networks to achieve fully unsupervised learning to image without changing the architectures. In addition to our demonstrated applications of REI (EI) on image inpainting, CT and MRI image reconstruction tasks, REI (EI) can be used to achieve new and fully unsupervised learning solutions to other inverse problems in computer vision and scientific imaging tasks, especially the cases when no groundtruth data is available for training.
 
 
 <div align=center><img width="600" src="https://github.com/edongdongchen/REI/blob/main/images/fig1_mri.png"></div>
 
-Figure 3: **Motivation.** EI is not robust to noise and the performance degrades with increasing noise. From top to bottom: reconstructions of EI, supervised (Sup) baseline, and the proposed REI on 4× accelerated MRI with `Gaussian` noise level <img src="https://render.githubusercontent.com/render/math?math=\sigma"> = 0.01, 0.1, 0.2. PSNR values are shown in the top right corner of the images
+Figure 3: **Motivation.** The performance of EI degrades with increasing noise. From top to bottom: reconstructions of EI, supervised (Sup) baseline, and the proposed REI on 4× accelerated MRI with `Gaussian` noise level <img src="https://render.githubusercontent.com/render/math?math=\sigma"> = 0.01, 0.1, 0.2. PSNR values are shown in the top right corner of the images
 
 ![flexible](https://github.com/edongdongchen/REI/blob/main/images/fig_ct.png)
 ![flexible](https://github.com/edongdongchen/REI/blob/main/images/fig_ipt.png)
