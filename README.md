@@ -14,16 +14,16 @@ In CVPR 2022 (oral)
 
 ## Background
 
-Deep networks provide state-of-the-art performance in multiple imaging inverse problems ranging from medical imaging to computational photography. However, most existing networks are trained with clean signals which are often hard or impossible to obtain. This work aims to solve the challenge: **learn the reconstruction function from noisy and partial measurements alone**. 
+Deep networks provide state-of-the-art performance in multiple imaging inverse problems ranging from medical imaging to computational photography. However, most existing networks are trained with clean signals which are often hard or impossible to obtain. This work aims to solve the challenge: **learn the reconstruction function from noisy and partial measurements alone**. Please find our [presentation video](https://www.youtube.com/watch?v=27iWnWEbQvA) for a quick introduction.
 
-#### [Equivariant Imaging (EI)](https://github.com/edongdongchen/EI)
+#### [Background: Equivariant Imaging (EI)](https://github.com/edongdongchen/EI)
 
 <div align=center><img width="650" src="https://github.com/edongdongchen/REI/blob/main/images/schematic_equivariance.png"></div>
 
 Figure 1: **Equivariant imaging systems.** If the set of signals is invariant to a certain set of transformations, the composition of imaging operator (<img src="https://render.githubusercontent.com/render/math?math=A">) with the reconstruction function (<img src="https://render.githubusercontent.com/render/math?math=f_\theta">) should be `equivariant` to these transformations.
 
 * **EI** is the first `self-supervised` learning framework that exploits the `group invariance` resent in signal distributions to learn a reconstruction function from partial measurement data alone (Figure 1). EI is `end-to-end` and `physics-based` learning framework for inverse problems with theoretical guarantees which leverages simple but fundamental priors about natural signals: `symmetry` and `low-dimensionality`. 
-* Given an inverse problem, EI learns the reconstruction function with **NO** need for either multiple forward operators or extra masking measurement data into multiple complementary/overlapped parts. `EI is agnostic to neural network architecture`. Please find our [blog post](https://tachella.github.io/projects/equivariantimaging/) for a quick introduction of EI.
+* Given an inverse problem, EI learns the reconstruction function with **NO** need for either multiple forward operators or extra masking measurement data into multiple complementary/overlapped parts. `EI is agnostic to neural network architecture`. Please find our [blog post](https://tachella.github.io/projects/equivariantimaging/) and [presentation video](https://www.youtube.com/watch?v=wGxW5bcCdxo) for a quick introduction of EI.
 
 #### Robust Equivariant Imaging (REI)
 
