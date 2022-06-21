@@ -3,7 +3,7 @@
 [![arXiv](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2111.12855)
 [![GitHub Stars](https://img.shields.io/github/stars/edongdongchen/REI?style=social)](https://github.com/edongdongchen/REI)
 
-[Robust Equivariant Imaging: a fully unsupervised framework for learning to image from noisy and partial measurements](https://arxiv.org/abs/2111.12855)
+[Robust Equivariant Imaging: a fully unsupervised framework for learning to image from noisy and partial measurements](https://openaccess.thecvf.com/content/CVPR2022/papers/Chen_Robust_Equivariant_Imaging_A_Fully_Unsupervised_Framework_for_Learning_To_CVPR_2022_paper.pdf)
 
 [Dongdong Chen](https://dongdongchen.com), [Julián Tachella](https://tachella.github.io/), [Mike E. Davies](https://www.research.ed.ac.uk/en/persons/michael-davies).
 
