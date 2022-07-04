@@ -47,6 +47,9 @@ Figure 3: **Motivation.** The performance of EI degrades with increasing noise. 
 ![flexible](https://github.com/edongdongchen/REI/blob/main/images/fig_ipt.png)
 Figure 4: **More results.** From top to bottom: reconstruction of <img src="https://render.githubusercontent.com/render/math?math=A^{\dagger}y">, EI, REI, Sup and the groundtruth on the non-linear CT (with `MPG` noise) and Inpainting (with `Poisson` noise) tasks, respectively.
 
+## [Frequently Asked Questions](/qa.md)
+We collected some Frequently Asked Questions, please find the above Q & A.
+
 ## Run the code
 
 1. Requirements: configure the environment by following: [environment.yml](https://github.com/edongdongchen/REI/blob/main/environment.yml) to run Inpainting and CT experiments. To run MRI experiments, please install the 'fastmri' package by `pip install fastmri`.
