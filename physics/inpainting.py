@@ -13,7 +13,7 @@ class Inpainting():
         else:
             mask_path = '../dataset/masks/mask_{}x{}_random{}.pt'.format(img_heigth, img_width, mask_rate)
         if os.path.exists(mask_path):
-            self.mask = torch.load(mask_path).to(device)
+            self.mask = torch.load(mask_path, weights_only=True).to(device)
         else:
             self.mask = torch.ones(img_heigth, img_width, device=device)
             self.mask[torch.rand_like(self.mask) > 1 - mask_rate] = 0
